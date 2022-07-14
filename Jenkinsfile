@@ -2,8 +2,8 @@ pipeline {
 
   environment {
     PROJECT = "ascendant-timer-350911"
-    APP_NAME = "checkoutservice"
-    FE_SVC_NAME = "${APP_NAME}-checkoutservice"
+    APP_NAME = "email"
+    FE_SVC_NAME = "${APP_NAME}-email"
     CLUSTER = "jarvis"
     CLUSTER_ZONE = "us-central1-c"
     IMAGE_TAG = "gcr.io/${PROJECT}/${APP_NAME}"
@@ -64,7 +64,7 @@ spec:
         container('kubectl') {
           
           sh "gcloud container clusters get-credentials jarvis --zone us-central1-c --project ascendant-timer-350911"
-          sh "kubectl apply -f checkoutservice.yaml"
+          sh "kubectl apply -f emailservice.yaml"
         }
       }
     }
